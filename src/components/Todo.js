@@ -5,12 +5,16 @@ class Todo extends React.Component {
     super();
     this.handleCheck = this.handleCheck.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.editContent = this.editContent.bind(this);
   }
   handleCheck(e) {
     this.props.handleCheck(e);
   }
   handleClose(e) {
     this.props.handleClose(e);
+  }
+  editContent(e) {
+    this.props.editContent(e);
   }
   render() {
     return (
@@ -30,11 +34,14 @@ class Todo extends React.Component {
               <label htmlFor={"checkbox" + this.props.todo.id}></label>
             </div>
           </div>
-          <div className={"todo-content text-gray-700 "}>
+          <div className="todo-content flex-grow text-gray-700 ">
             <p
               className={
-                this.props.todo.checked ? "line-through text-gray-400" : ""
+                this.props.todo.checked
+                  ? "line-through text-gray-400"
+                  : "text-gray-700"
               }
+              onDoubleClick={this.editContent}
             >
               {this.props.todo.content}
             </p>

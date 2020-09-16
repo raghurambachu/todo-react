@@ -10,8 +10,14 @@ $font-family: "Arimo", sans-serif;
   .toggle-checkbox {
     width: 40px;
   }
-  .todo-content {
-    width: 91.7%;
+  .todo-content > p {
+    width: 100%;
+  }
+  @media screen and (max-width: 545px) {
+    width: 320px;
+    .todo-content {
+      width: 280px;
+    }
   }
 }
 
